@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <div id="particles" class="particles-container"></div>
+
+    <div class="dashboard-container">
+        <header>
+            <div class="hero-section">
+                <h1>Real-Time Weather Dashboard</h1>
+                <p>Live metrics and insights for any location.</p>
+            </div>
+            <button id="themeToggle" class="theme-btn">🌙 Dark Mode</button>
+        </header>
+
+        <div class="search-box">
+            <input type="text" id="cityInput" placeholder="Try 'Mandi, IN'..." autocomplete="off">
+            <button id="searchBtn">Search</button>
+            <button id="geoBtn" title="Use Current Location">📍</button>
+        </div>
+
+        <div id="errorMessage" class="error-message hidden">City not found. Please try again.</div>
+
+        <div id="weatherCard" class="weather-card hidden">
+            <div class="main-info">
+                <h2 id="cityName">--</h2>
+                <div class="weather-condition">
+                    <img id="weatherIcon" src="" alt="Weather Icon">
+                    <span id="weatherDesc">--</span>
+                </div>
+                <h1 id="temperature">--°C</h1>
+            </div>
+
+            <div class="insight-box">
+                <span id="aiInsight">Loading insights...</span>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <span class="label">Humidity</span>
+                    <span id="humidity" class="value">--</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Wind Speed</span>
+                    <span id="windSpeed" class="value">--</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Pressure</span>
+                    <span id="pressure" class="value">--</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Visibility</span>
+                    <span id="visibility" class="value">--</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Sunrise</span>
+                    <span id="sunrise" class="value">--</span>
+                </div>
+                <div class="metric-item">
+                    <span class="label">Sunset</span>
+                    <span id="sunset" class="value">--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+:root {
+    --bg-gradient-light: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+    --bg-gradient-dark: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+    --card-bg-light: rgba(255, 255, 255, 0.25);
+    --card-bg-dark: rgba(0, 0, 0, 0.4);
+    --text-light: #333;
+    --text-dark: #f0f0f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+body.light-mode {
+    background: var(--bg-gradient-light);
+    color: var(--text-light);
+}
+
+body.dark-mode {
+    background: var(--bg-gradient-dark);
+    color: var(--text-dark);
+}
+
+/* Particle Animations (Rain/Snow) */
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    z-index: 10;
+    position: relative;
+}
+
+/* Header & Toggle */
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.hero-section h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.hero-section p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+.theme-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    font-weight: 600;
+}
+
+/* Search Box */
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    font-size: 1rem;
+    outline: none;
+}
+
+body.dark-mode .search-box input {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.search-box button {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 15px;
+    background: #4a90e2;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.search-box button:hover {
+    transform: scale(1.05);
+}
+
+#geoBtn {
+    background: #ff7e67;
+    font-size: 1.2rem;
+}
+
+/* Weather Card */
+.weather-card {
+    background: var(--card-bg-light);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 0.6s ease-out;
+}
+
+body.dark-mode .weather-card {
+    background: var(--card-bg-dark);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.weather-condition img {
+    width: 100px;
+    height: 100px;
+    animation: float 3s ease-in-out infinite;
+}
+
+#temperature {
+    font-size: 4.5rem;
+    font-weight: 300;
+    margin: 10px 0;
+}
+
+/* AI Insight Box */
+.insight-box {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 12px;
+    border-radius: 12px;
+    margin: 20px 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-left: 4px solid #4a90e2;
+}
+body.dark-mode .insight-box {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Extended Metrics */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.metric-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px 10px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s;
+}
+body.dark-mode .metric-item {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.metric-item:hover {
+    transform: translateY(-5px);
+}
+
+.metric-item .label {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.metric-item .value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.error-message {
+    background: #ff4757;
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Simple CSS Rain animation */
+.drop {
+    position: absolute;
+    background: rgba(255,255,255,0.6);
+    width: 2px;
+    height: 15px;
+    animation: rain linear infinite;
+}
+@keyframes rain {
+    0% { transform: translateY(-10vh); }
+    100% { transform: translateY(110vh); }
+}
